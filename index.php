@@ -11,36 +11,10 @@
 
     <?php
 
-    class Movie
-    {
-        public string $title;
-        public int $year;
-        public array $genres;
+    require_once "./Modules/genre.php";
+    require_once "./Modules/movie.php";
 
-        public function __construct($_title, $_year, array $_genres)
-        {
 
-            $this->title = $_title;
-            $this->year = $_year;
-            $this->genres = $_genres;
-        }
-
-        public function descrivi()
-        {
-            $generi = array_map(fn($genre) => $genre->movieGenre, $this->genres);
-            return "il film: $this->title è uscito nell'anno: $this->year. Generi: " . implode(', ', $generi);
-        }
-    }
-
-    class Genre
-    {
-        public  $movieGenre;
-
-        public function __construct($_movieGenre)
-        {
-            $this->movieGenre = $_movieGenre;
-        }
-    }
 
     $inception = new Movie("Inception", 2010, [new Genre("Azione"), new Genre("Fantascienza")]);
 
