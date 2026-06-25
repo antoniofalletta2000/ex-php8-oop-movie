@@ -10,15 +10,14 @@
 <body>
 
     <?php
-
     require_once "./Modules/genre.php";
     require_once "./Modules/movie.php";
 
 
 
-    $inception = new Movie("Inception", 2010, [new Genre("Azione"), new Genre("Fantascienza")]);
+    $inception = new Movie("Inception", 2010, [new Genre("Azione"), new Genre("Fantascienza")], 9);
 
-    $interstellar = new Movie("Interstellar", 2014, [new Genre("Fantascienza"), new Genre("Drammatico")]);
+    $interstellar = new Movie("Interstellar", 2014, [new Genre("Fantascienza"), new Genre("Drammatico")], 10);
 
     echo $inception->descrivi();
 
