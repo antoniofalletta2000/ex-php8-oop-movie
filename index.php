@@ -15,25 +15,26 @@
     {
         public string $title;
         public int $year;
-        public Genre $genre;
+        public array $genres;
 
-        public function __construct($_title, $_year, Genre $_genre)
+        public function __construct($_title, $_year, array $_genres)
         {
 
             $this->title = $_title;
             $this->year = $_year;
-            $this->genre = $_genre;
+            $this->genres = $_genres;
         }
 
         public function descrivi()
         {
-            return "il film: $this->title è uscito nell'anno: $this->year. Questo film è un genere: {$this->genre->movieGenre}";
+            $generi = array_map(fn($genre) => $genre->movieGenre, $this->genres);
+            return "il film: $this->title è uscito nell'anno: $this->year. Generi: " . implode(', ', $generi);
         }
     }
 
     class Genre
     {
-        public string $movieGenre;
+        public  $movieGenre;
 
         public function __construct($_movieGenre)
         {
@@ -41,9 +42,9 @@
         }
     }
 
-    $inception = new Movie("Inception", 2010, new Genre("Azione"));
+    $inception = new Movie("Inception", 2010, [new Genre("Azione"), new Genre("Fantascienza")]);
 
-    $interstellar = new Movie("Interstellar", 2014, new Genre("Fantascienza"));
+    $interstellar = new Movie("Interstellar", 2014, [new Genre("Fantascienza"), new Genre("Drammatico")]);
 
     echo $inception->descrivi();
 
