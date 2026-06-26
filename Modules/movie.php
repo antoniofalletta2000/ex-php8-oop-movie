@@ -10,7 +10,7 @@ class Movie
         public int $year;
         public array $genres;
 
-        public function __construct($_title, $_year, array $_genres, $_vote)
+        public function __construct(string $_title, int $_year, array $_genres, int $_vote)
         {
 
             $this->title = $_title;
@@ -22,6 +22,6 @@ class Movie
         public function descrivi()
         {
             $generi = array_map(fn($genre) => $genre->movieGenre, $this->genres);
-            return "il film: $this->title è uscito nell'anno: $this->year. Generi: " . implode(', ', $generi) . ". Voto: $this->vote";
+            return "il film: $this->title è uscito nell'anno: $this->year <br> Generi: " . implode(', ', $generi) . "<br> Voto: $this->vote";
         }
     }

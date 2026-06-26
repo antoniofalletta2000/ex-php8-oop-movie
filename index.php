@@ -9,29 +9,24 @@
 </head>
 
 <body>
+    <?php
 
+    require_once "./Modules/genre.php";
+    require_once "./Modules/movie.php";
+    require_once "./db.php"
+
+    ?>
     <div class="container mt-5">
-        <?php
+        <ul>
+            <?php foreach ($movies as $movie) {
+                echo "<li>";
+                echo $movie->descrivi();
+                echo "</li>";
+                echo "<br>";
+            }
+            ?>
+        </ul>
 
-        require_once "./Modules/genre.php";
-        require_once "./Modules/movie.php";
-
-
-
-        $inception = new Movie("Inception", 2010, [new Genre("Azione"), new Genre("Fantascienza")], 9);
-
-        $interstellar = new Movie("Interstellar", 2014, [new Genre("Fantascienza"), new Genre("Drammatico")], 10);
-
-        echo $inception->descrivi();
-
-        echo "<br>";
-        echo "<hr>";
-
-        echo $interstellar->descrivi();
-
-
-
-        ?>
     </div>
 
 

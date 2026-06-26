@@ -2,7 +2,7 @@
 
 trait Rating {
 
-public int $vote;
+protected int $vote;
 
 public function getRating($vote){
 
